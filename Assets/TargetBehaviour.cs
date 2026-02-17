@@ -7,43 +7,40 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Target : MonoBehaviour
 {
-    public float maxHeight = 5.5f;
+    public float maxHeight = 7.0f;
     public float minHeight = 2.5f;
-    public float duration = 4f;
-    public float velocity = 1.0f;
-    public Vector3 targetPosition;
-
+    public float velocity = 1.5f;
     //public GameObject particles;
 
     void Start()
     {
-        //transform.position = new Vector3(-2.5f, 2.6f, 0);
-        
+        Debug.Log("Something");
     }
 
     void Update()
-    {
-        Vector3 temp = transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, velocity * Time.deltaTime);
-        
-        /*
-        transform.Translate(Vector3.forward * velocity * Time.deltaTime);
-        
-        
-        if (temp.y < maxHeight || temp.y < minHeight) 
-        {
-            transform.Translate(Vector3.back * velocity * Time.deltaTime);
-        }
-        transform.position = temp;
-        */
+    {   
+        float range = maxHeight - minHeight;
+        float newY = minHeight + Mathf.PingPong(Time.time * velocity, range);
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
-
     private void OnCollisionEnter(Collision collision)
     {
-        //GameObject clone = Instantiate(particles, transform.position, transform.rotation);
-        //Destroy(clone.gameObject, 2);
-
-        Destroy(gameObject);
-        Destroy(collision.gameObject);
+        Debug.Log("Collision!");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Something");
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
+    void OnTriggeronEnter(Collider other)
+   {
+        Debug.Log("Trigger!");
+        if (other.gameObject.CompareTag("Enemy")) 
+        {
+            Debug.Log("Something");
+            //Destroy(other.gameObject);
+            //Destroy(gameObject);
+        }
+   }
 }

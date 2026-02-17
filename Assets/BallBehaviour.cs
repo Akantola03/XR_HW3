@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+/*
 public class Throwable : MonoBehaviour
 {
     List<Vector3> trackingPos = new List<Vector3>();
@@ -59,3 +59,4 @@ public class Throwable : MonoBehaviour
         }
     }
 }
+*/
