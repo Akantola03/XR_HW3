@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision!");
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Grabbable"))
         {
             Debug.Log("Something");
             Destroy(collision.gameObject);
@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
     void OnTriggeronEnter(Collider other)
    {
         Debug.Log("Trigger!");
-        if (other.gameObject.CompareTag("Enemy")) 
+        if (other.gameObject.CompareTag("grabbable")) 
         {
             Debug.Log("Something");
             //Destroy(other.gameObject);

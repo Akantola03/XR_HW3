@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-/*
+
 public class Throwable : MonoBehaviour
 {
     List<Vector3> trackingPos = new List<Vector3>();
     public float velocity = 1000f;
 
-    bool pickekdUp = false;
+    bool pickedUp = false;
     GameObject parentHand;
     Rigidbody rb;
 
@@ -17,7 +17,7 @@ public class Throwable : MonoBehaviour
     {
 
     }
-
+    /*
     void Update()
     {
         if (pickedUp == true)
@@ -47,16 +47,34 @@ public class Throwable : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         float triggerRight = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
 
         if (other.gameObject.tag == "hand" && trriggerRight > 0.9f)
         {
-            pickekdUp = true;
+            pickedUp = true;
             parentHand = other.gemaObject;
         }
     }
+    */
+    /*
+     
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision!");
+        if (collision.gameObject.CompareTag("Grabbable"))
+        {
+            Debug.Log("Something");
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
+
+     */
+
+
+
+
 }
-*/

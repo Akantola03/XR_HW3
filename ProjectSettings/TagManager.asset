@@ -13,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Destroyable
+  - Ignore_from_view
   - Interactable
   - Ball
   - Target
