@@ -10,6 +10,8 @@ public class Target : MonoBehaviour
     public float maxHeight = 7.0f;
     public float minHeight = 2.5f;
     public float velocity = 1.5f;
+
+    public int points = 1;
     //public GameObject particles;
 
     void Start()
@@ -31,6 +33,8 @@ public class Target : MonoBehaviour
             Debug.Log("Something");
             Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            ScoreManager.Instance.AddScore(points);
         }
     }
     void OnTriggeronEnter(Collider other)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,14 +13,17 @@ public class Throwable : MonoBehaviour
     bool pickedUp = false;
     GameObject parentHand;
     Rigidbody rb;
+    public InputActionReference action;
 
     void Start()
     {
-
+        action.action.Enable();
     }
-    /*
+ /*
     void Update()
     {
+        pickedUp = action.action.IsPressed();
+
         if (pickedUp == true)
         {
             rb.useGravity = false;
@@ -52,15 +56,14 @@ public class Throwable : MonoBehaviour
     {
         float triggerRight = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
 
-        if (other.gameObject.tag == "hand" && trriggerRight > 0.9f)
+        if (other.gameObject.tag == "Default" && trriggerRight > 0.9f)
         {
             pickedUp = true;
             parentHand = other.gemaObject;
         }
     }
-    */
-    /*
-     
+
+/*
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision!");
@@ -70,11 +73,7 @@ public class Throwable : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-
-
-     */
-
-
-
-
+    }
+*/
+ 
 }
