@@ -35,6 +35,9 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
 
             ScoreManager.Instance.AddScore(points);
+
+            // FindObjectOfType<ScoreManager>().AddScore(points);
+
         }
     }
     void OnTriggeronEnter(Collider other)
